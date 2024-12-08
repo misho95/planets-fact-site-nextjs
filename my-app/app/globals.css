@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #070724;
+  --foreground: #ffffff;
+  --hover: #38384f;
+  --gray: #838391;
+  --light-blue: #419ebb;
+  --yellow: #eda249;
+  --purple: #6f2ed6;
+  --light-orange: #d14c32;
+  --red: #d83a34;
+  --orange: #cd5120;
+  --teal: #1ec2a4;
+  --blue: #2d68f0;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  background-image: url("/assets/background-stars.svg");
+  background-repeat: repeat;
+  background-position: bottom bottom;
+  font-family: Arial, Helvetica, sans-serif;
+}
