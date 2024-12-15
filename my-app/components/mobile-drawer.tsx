@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "../app/data.json";
 import Link from "next/link";
 
@@ -19,6 +19,14 @@ const MobileDrawer = () => {
     "#65F0D5",
     "#497EFA",
   ];
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [open]);
 
   return (
     <div>

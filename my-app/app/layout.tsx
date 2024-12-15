@@ -40,11 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${antonioFont.variable} ${spartaFont.variable} font-Sparta antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${antonioFont.variable} ${spartaFont.variable} flex min-h-screen w-full flex-col font-Sparta antialiased`}
       >
         <Header />
         <HeaderMobile />
-        <main>{children}</main>
+        <main className="flex flex-1">{children}</main>
       </body>
     </html>
   );
