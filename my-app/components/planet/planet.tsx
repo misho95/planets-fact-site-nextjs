@@ -24,8 +24,16 @@ const infoData = [
   { id: 3, title: "AVERAGE TEMP.", data: "temperature" },
 ];
 
+const minRadius = 2438.7;
+const maxRadius = 69911;
+
 const Planet = ({ data }: { data: planetType }) => {
   const [active, setActive] = useState("overview");
+
+  const planetRadius = +data.radius.split(" ")[0].replace(",", "");
+
+  const scaledValue =
+    1 + 0.5 * ((planetRadius - minRadius) / (maxRadius - minRadius));
 
   return (
     <section className="flex w-full flex-col lg:m-auto lg:max-w-[1210px]">
@@ -66,6 +74,7 @@ const Planet = ({ data }: { data: planetType }) => {
                 <Image
                   width={111}
                   height={111}
+                  style={{ scale: scaledValue }}
                   className="size-[111px] sm:size-[184px] lg:size-[290px]"
                   alt={data.name}
                   src={
@@ -156,7 +165,7 @@ const Planet = ({ data }: { data: planetType }) => {
               return (
                 <div
                   key={d.id}
-                  className="flex h-[48px] w-full flex-row items-center justify-between border-[1px] border-white/20 px-[24px] uppercase sm:h-[88px] sm:w-[164px] sm:flex-col sm:items-start sm:justify-center lg:h-[128px] lg:w-[255px]"
+                  className="flex h-[48px] w-full flex-row items-center justify-between border-[1px] border-white/20 px-[24px] uppercase sm:h-[88px] sm:w-[clamp(100%_164px_164px)] sm:flex-col sm:items-start sm:justify-center lg:h-[128px] lg:w-[clamp(100%_255px_255px)]"
                 >
                   <span className="text-[8px] font-bold leading-[16px] tracking-[0.73px] opacity-50 lg:text-[11px] lg:leading-[25px] lg:tracking-[1px]">
                     {d.title}
