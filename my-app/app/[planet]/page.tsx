@@ -1,7 +1,6 @@
-import Planet from "@/components/planet";
 import data from "../data.json";
 import { redirect } from "next/navigation";
-import PlanetMobile from "@/components/planet-mobile";
+import Planet from "@/components/planet/planet";
 
 export type planetType = {
   name: string;
@@ -44,7 +43,7 @@ export default async function Home({
 
   return (
     <>
-      <PlanetMobile data={findPlanet as planetType} />
+      <Planet data={findPlanet as planetType} />
     </>
   );
 }

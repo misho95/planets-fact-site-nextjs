@@ -5,20 +5,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import data from "../app/data.json";
 import Link from "next/link";
+import { pickColor } from "@/lib/hooks";
 
 const MobileDrawer = () => {
   const [open, setOpen] = useState(false);
-
-  const colors = [
-    "#DEF4FC",
-    "#F7CC7F",
-    "#545BFE",
-    "#FF6A45",
-    "#ECAD7A",
-    "#FCCB6B",
-    "#65F0D5",
-    "#497EFA",
-  ];
 
   useEffect(() => {
     if (open) {
@@ -46,7 +36,7 @@ const MobileDrawer = () => {
       </button>
       <div
         className={clsx(
-          "fixed left-0 top-[70px] z-50 flex h-[calc(100vh-70px)] w-[100dvw] flex-col justify-around bg-background p-[24px] duration-300 sm:hidden",
+          "fixed left-0 top-[70px] z-50 flex h-[calc(100vh-70px)] w-[100dvw] flex-col justify-around bg-background p-[24px] duration-200 sm:hidden",
           {
             "translate-x-[100%]": !open,
             "translate-x-[0px]": open,
@@ -63,7 +53,7 @@ const MobileDrawer = () => {
             >
               <div
                 className="size-[20px] flex-shrink-0 rounded-full"
-                style={{ backgroundColor: colors[i] }}
+                style={{ backgroundColor: pickColor(d.name, true) }}
               />
               <span className="w-full">{d.name}</span>
               <Image
