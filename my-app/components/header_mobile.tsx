@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import MobileDrawer from "./mobile-drawer";
 import Logo from "./logo";
 
